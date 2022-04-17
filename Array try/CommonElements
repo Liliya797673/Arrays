@@ -1,0 +1,33 @@
+package Arrays;
+
+import java.util.Scanner;
+
+public class CommonElements {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        //Hey hello 2 4
+        //10 hey 4 hello
+        // трябва да принтирам общите елементи между Array 2 и Array1
+
+        String firstLineInput = scanner.nextLine();
+        String secondLineInput = scanner.nextLine();
+
+        String [] firstLineInputArr = firstLineInput.split(" ");
+        String [] secondLineInputArr = secondLineInput.split(" ");
+
+        
+        for (String elementInSecond: secondLineInputArr  ) {
+
+            for (String elementInFirst:firstLineInputArr) {
+
+                if (elementInSecond.equals(elementInFirst)){
+                    System.out.print(elementInSecond+ " ");
+                }
+                
+            }
+
+        }
+
+    }
+}
