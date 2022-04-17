@@ -1,0 +1,35 @@
+package Arrays;
+
+import java.util.Arrays;
+import java.util.Scanner;
+
+public class SumEvenNumbers {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        // Read an array from the console and sum only the even numbers.
+
+        int[] numbersArr = Arrays
+                .stream(scanner.nextLine().split(" "))
+                .mapToInt(Integer::parseInt)
+                .toArray();
+        int sum = 0;
+        for (int i = 0; i < numbersArr.length; i++) {
+            if (numbersArr[i] % 2 == 0) {
+                sum += numbersArr[i];
+            }
+
+
+            //String inputLine = scanner.nextLine();
+            //
+            //        String[] intputArr = inputLine.split(" ");
+            //
+            //        int[] numArr = new int [intputArr.length];
+            //
+            //        for (int i = 0; i < numArr.length; i++) ; {
+            //            numArr[i] = Integer.parseInt(intputArr[i]);
+        }
+        System.out.println(sum);
+
+    }
+}
