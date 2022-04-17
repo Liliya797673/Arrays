@@ -1,0 +1,57 @@
+package Arrays;
+
+import java.util.Scanner;
+
+public class ZigZagArrays {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        // Write a program that creates 2 arrays. You will be given an integer n.
+        // On the next n lines, you get 2 integers. Form 2 arrays as shown below.
+        //4
+        //1 5
+        //9 10  - > 1 10 31 20
+        //31 81 ->  5 9 81 41
+        //41 20
+
+        int n = Integer.parseInt(scanner.nextLine());
+        // пускам си for, за да обходя редовете, които ще получавам и са до n
+        // след като присвоя стойности на firstNumber и secondNumber мога да налея новите масиви
+        // създавам нов масив firstArr, който е с дължина n
+        String[] firstArr = new String[n];
+        String[] secondArr = new String[n];
+        for (int i = 0; i < n; i++) {
+            // прочитам си входа -> на първи ред "1 5" - > числа,
+            // с които обаче няма да правя аритм операции и пазя в Стринг
+            String input = scanner.nextLine();
+            // раздели ми input по празно място и ми дай елемента, който се намира на index 0,
+            // за да го запазя като първото число - > firstNumber -> 1
+            String firstNumber = input.split(" ")[0];
+            // secondNumber -> 5
+            String secondNumber = input.split(" ")[1];
+
+            // след като си задам новите масиви и им определя дължината, правя проверка по четен/нечетен ред,
+            // защото по това преценявам кой елемент къде да отиде
+            // i ми пази реда при текущата итерация като i+1, защото на първата i е 0,
+            // а на нас ни трябва дали първият е нечетен
+            if ((i + 1) % 2 == 1) {
+                firstArr[i] = firstNumber;
+                secondArr[i] = secondNumber;
+
+            } else {
+                firstArr[i] = secondNumber;
+                secondArr[i] = firstNumber;
+            }
+
+        }
+        for (String element : firstArr) {
+            System.out.print(element + " ");
+
+        }
+
+        System.out.println();
+        for (String element : secondArr) {
+        System.out.print(element + " ");
+        }
+    }
+}
