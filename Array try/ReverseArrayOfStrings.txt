@@ -1,0 +1,25 @@
+package Arrays;
+
+import java.util.Scanner;
+
+public class ReverseArrayOfStrings {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+            // a b c d e -> e d c b a
+        String input = scanner.nextLine();
+        // прочитам array
+        String [] inputLine = input.split(" ");
+        // Обхождам получения масив, за да достъпя всеки един индекс
+            for (int index = 0; index <inputLine.length /2; index ++) {
+                // старият
+                String oldSymbol = inputLine [index];
+                // на настоящия индекс присвоявам стойността на последния символ:
+                inputLine [index] = inputLine [(inputLine.length-1)-index];
+                // !!! сега обаче ми изглежда -> e d c b е , т.е трябва последният символ да стане = oldSymbol
+                // на последния индекс от масива inputLine - > inputLine.length-1)-index присвоявам нова стойност = oldSymbol
+                inputLine[(inputLine.length-1)-index] = oldSymbol;
+            }
+
+        System.out.println(String.join(" ", inputLine));
+    }
+}
