@@ -1,0 +1,48 @@
+package Arrays;
+
+import java.util.Arrays;
+import java.util.Scanner;
+
+public class EqualArrays {
+    public static void main(String[] args) {
+        //10 20 30
+        //10 20 30
+        //Arrays are identical. Sum: 60
+        Scanner scanner = new Scanner(System.in);
+        // прочитам си Int масив
+       int [] firstArr =  Arrays
+               .stream(scanner.nextLine().split(" "))
+               .mapToInt(Integer::parseInt)
+               .toArray();
+
+       int [] secondArr = Arrays
+               .stream(scanner.nextLine().split(" "))
+               .mapToInt(Integer::parseInt)
+               .toArray();
+
+       // ако не знаем със сигурност, че ще сравняваме масиви с еднаква дължина:
+        // измежду дължините на двата масива ми вземи максималната дължина
+        // трябва ми цикъл с толкова итерации, че да мога да сравнявам стойностите на елементите в двата масива
+        // -> елементът на 0 позиция на първи масив с елемента на първа позиция на втори масив
+        int maxLength = Math.max(firstArr.length, secondArr.length);
+
+        // for цикъл до maxLength и в него проверка дали елементът на позиция i от първия масив - firstArr[i] е различен
+        // от елемента на позиция i от втория масив -> secondArr[i]
+        int sum = 0;
+        boolean areNotIdentical = false;
+        for (int i = 0; i < maxLength; i ++) {
+            // намирам сумата като добавя към сумата 0 съответния елемент от масива и тъй като са еднакви няма значиение
+            sum+=firstArr[i];
+
+            if (firstArr[i] != secondArr[i]){
+                System.out.printf("Arrays are not identical. Found difference at %d index.", i);
+                areNotIdentical = true;
+                break;
+            }
+        }
+         if (!areNotIdentical){
+             System.out.printf ("Arrays are identical. Sum: %d", sum);
+
+         }
+    }
+}
