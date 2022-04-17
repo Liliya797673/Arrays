@@ -1,0 +1,38 @@
+package Arrays;
+
+import java.util.Arrays;
+import java.util.Scanner;
+
+public class Train {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        // брой вагони във влака
+        int countWagons = Integer. parseInt(scanner.nextLine());
+        // на следващите countWagons на брой реда получавам броя хора, които ще влязат в съответния вагон
+        // 1. създавам инт масив по броя вагони
+        int [] wagonsArr = new int [countWagons];
+        // обхождам масива
+        for (int wagon = 0; wagon <countWagons ; wagon ++){
+            // пълня масива
+            // първо чета пътниците от конзолата, а после на индексите присвоявам нова стойност
+            int countPeoplePerWagon = Integer. parseInt(scanner.nextLine());
+            wagonsArr[wagon] = countPeoplePerWagon;
+
+        }
+
+        // трябва да принтирам на един ред вагоните поделени по празно място
+        int sum = 0;
+        for (int number:wagonsArr) {
+            System.out.print(number+ " ");
+            sum+=number;
+
+        }
+        System.out.println();
+       // System.out.println(sum);
+
+        // на последен ред да принтирам сумата от всички пътници
+
+        System.out.println(Arrays.stream (wagonsArr).sum());
+    }
+}
